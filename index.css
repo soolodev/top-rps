@@ -6,3 +6,10 @@
     margin: 5px;
     font-size: 12px;
 }
+
+#output-log
+{
+    overflow: auto;
+    width: 400px;
+    height: 500px;
+}
