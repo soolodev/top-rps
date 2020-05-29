@@ -250,6 +250,16 @@ function getFinalResult(pOneScore, pTwoScore)
 /*
     Overall Game Function
 */
+// Plays through a round
+//     e is the click event that called this function
+// const playRound = (e) =>
+// {
+//     let pOneSelection = "";
+//     let pTwoSelection = "";
+
+//     pOneSelection =
+// }
+
 // Operates the game
 //     e is the click event that called this function
 function game(e)

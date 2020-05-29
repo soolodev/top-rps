@@ -7,24 +7,44 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <h1>Rock, Paper, Scissors!</h1>
-    <p>A game of rock paper scissors through the browser. :)</p>
-
-    <button id="game-start">Play!</button>
-
     <div class="container">
-        <h2>What do you choose?</h2>
-        <button id="input-rock">Rock</button>
-        <button id="input-paper">Paper</button>
-        <button id="input-scissors">Scissors</button>
+        <header>
+            <div class="header-content">
+                <h1><strong>Rock Paper Scissors</strong></h1>
+                <p><i>First one to 5 points wins!</i></p>
+                <button id="game-start">Play!</button>
+            </div>
+        </header>
     </div>
-
     <div class="container">
-        <h2>Score</h2>
-        <p>Player: 1</p>
-        <p>Computer: 2</p>
+        <main>
+            <div class="announcements"></div>
+            <div class="card-container">
+                <div class="card">Rock</div>
+                <div class="card">Paper</div>
+                <div class="card">Scissors</div>
+            </div>
+            <div class="stat-container">
+                <div class="stat-log">
+                    <p>COM</p>
+                    <p>Score: 0</p>
+                    <p>Total: 0</p>
+                    <p>Round: 1</p>
+                </div>
+                <div class="stat-log">
+                    <p>YOU</p>
+                    <p>Score: 0</p>
+                    <p>Total: 0</p>
+                </div>
+            </div>
+            <div class="card-container">
+                <h2>What do you choose?</h2>
+                <button class="card" id="input-rock">Rock</button>
+                <button class="card" id="input-paper">Paper</button>
+                <button class="card" id="input-scissors">Scissors</button>
+            </div>
+        </main>
     </div>
-
     <div class="container">
         <h2>Log</h2>
         <div id="output-log">
@@ -54,13 +74,15 @@
             <p>>: Player Two is the winner!</p>
         </div>
     </div>
-
     <footer>
         <p class="note">This was made while undergoing TOP.</p>
     </footer>
 
     <script>
-        document.getElementById("game-start").addEventListener("click", e => game(e));
+        document.getElementById("game-start").addEventListener("click", () => game);
+        document.getElementById("input-rock").addEventListener("click", () => playRound);
+        document.getElementById("input-paper").addEventListener("click", () => playRound);
+        document.getElementById("input-scissors").addEventListener("click", () => playRound);
     </script>
 </body>
 </html>
