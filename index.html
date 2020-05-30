@@ -7,46 +7,16 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1><strong>Rock Paper Scissors</strong></h1>
-                <p><i>First one to 5 points wins!</i></p>
-                <button id="game-start">Play!</button>
-            </div>
-        </header>
-    </div>
-    <div class="container">
-        <main>
-            <div class="announcements"></div>
-            <div class="card-container">
-                <div class="card">Rock</div>
-                <div class="card">Paper</div>
-                <div class="card">Scissors</div>
-            </div>
-            <div class="stat-container">
-                <div class="stat-log">
-                    <p>COM</p>
-                    <p>Score: 0</p>
-                    <p>Total: 0</p>
-                    <p>Round: 1</p>
-                </div>
-                <div class="stat-log">
-                    <p>YOU</p>
-                    <p>Score: 0</p>
-                    <p>Total: 0</p>
-                </div>
-            </div>
-            <div class="card-container">
-                <h2>What do you choose?</h2>
-                <button class="card" id="input-rock">Rock</button>
-                <button class="card" id="input-paper">Paper</button>
-                <button class="card" id="input-scissors">Scissors</button>
-            </div>
-        </main>
-    </div>
-    <div class="container">
+    <header>
+        <div class="header-content">
+            <h1><strong>Rock Paper Scissors</strong></h1>
+            <p><i>First one to 5 points wins!</i></p>
+            <button id="game-start">Play!</button>
+        </div>
+    </header>
+<!--     <div class="log-container">
         <h2>Log</h2>
+        <hr>
         <div id="output-log">
             <p>>: Round 1 start! (Score 0:0)</p>
             <p>>: You chose Rock</p>
@@ -73,7 +43,36 @@
             <p>>: Player Two has a score of 2.</p>
             <p>>: Player Two is the winner!</p>
         </div>
-    </div>
+    </div> -->
+    <main>
+        <div class="page-width">
+            <div class="announcements"></div>
+            <div class="card-container">
+                <div class="card">Rock</div>
+                <div class="card">Paper</div>
+                <div class="card">Scissors</div>
+            </div>
+            <div class="stat-container">
+                <div class="stat-log">
+                    <p>COM</p>
+                    <p>Score: 0</p>
+                    <p>Total: 0</p>
+                    <p>Round: 1</p>
+                </div>
+                <div class="stat-log">
+                    <p>YOU</p>
+                    <p>Score: 0</p>
+                    <p>Total: 0</p>
+                </div>
+            </div>
+            <div class="card-container">
+                <h2>What do you choose?</h2>
+                <button class="card" id="input-rock">Rock</button>
+                <button class="card" id="input-paper">Paper</button>
+                <button class="card" id="input-scissors">Scissors</button>
+            </div>
+        </div>
+    </main>
     <footer>
         <p class="note">This was made while undergoing TOP.</p>
     </footer>

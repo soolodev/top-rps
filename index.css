@@ -1,25 +1,27 @@
-body
+html, body
 {
     margin: 0;
     padding: 0;
-    background-color: #E7FFE6;
+    height: 100%;
+    margin-bottom: 140px;
 }
 
-.container
+body
 {
-    position: relative;
+    background-color: #E7FFE6;
 }
 
 header
 {
     width: 100%;
-    height: 150px;
+    height: 140px;
     position: absolute;
     top: 0;
     left: 0;
     padding: 16px;
     background-color: #6FE572;
     border-bottom: 1px solid #A0EAA7;
+    box-sizing: border-box;
 }
 
 .header-content
@@ -33,7 +35,7 @@ header
 .header-content h1
 {
     font-size: 50px;
-    margin-top: 15px;
+    margin-top: 8px;
     margin-bottom: 8px;
 }
 
@@ -44,11 +46,50 @@ header
     margin-bottom: 15px;
 }
 
+main
+{
+    margin-top: 140px;
+    height: 100%;
+}
+
+.page-width
+{
+    width: 900px;
+    height: 100%;
+    margin: auto;
+    padding: 2px;
+    background-color: #BCFFB9;
+}
+
+.log-container
+{
+    float: right;
+    background-color: #8FF1AD;
+    padding: 3px;
+    box-sizing: border-box;
+    margin: 10px;
+    border: 1px solid #ABD0BC;
+    border-radius: 5px;
+    text-align: center;
+    height: 100%;
+}
+
+.log-container h2
+{
+    margin: 3px;
+}
+
 #output-log
 {
     overflow: auto;
-    width: 400px;
-    height: 500px;
+    width: 280px;
+    height: 300px;
+    margin: 5px;
+    padding: 2px 8px;
+    background-color: #7ECB96;
+    box-sizing: border-box;
+    border-radius: 2px;
+    text-align: left;
 }
 
 .note
