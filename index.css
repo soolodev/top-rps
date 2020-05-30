@@ -2,8 +2,6 @@ html, body
 {
     margin: 0;
     padding: 0;
-    height: 100%;
-    margin-bottom: 140px;
 }
 
 body
@@ -49,7 +47,6 @@ header
 main
 {
     margin-top: 140px;
-    height: 100%;
 }
 
 .page-width
@@ -61,7 +58,7 @@ main
     background-color: #BCFFB9;
 }
 
-.log-container
+/*.log-container
 {
     float: right;
     background-color: #8FF1AD;
@@ -90,13 +87,23 @@ main
     box-sizing: border-box;
     border-radius: 2px;
     text-align: left;
-}
+}*/
 
-.note
+.footer-container
 {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
-    margin: 5px;
+    padding: 3px 27px;
     font-size: 12px;
+    width: 100%;
+    height: auto;
+    background-color: #6EE869;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.footer-container p
+{
+    margin: 2px;
 }
