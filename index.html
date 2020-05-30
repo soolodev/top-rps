@@ -15,35 +15,54 @@
     </header>
     <main>
         <div class="page-width">
-            <div id="announcements"></div>
-            <div id="com-container">
+            <div class="com-container">
                 <div class="card-container">
                     <div class="card">Rock</div>
                     <div class="card">Paper</div>
                     <div class="card">Scissors</div>
                 </div>
                 <div class="stat-container">
-                    <div class="stat-log">
-                        <p>COM</p>
-                        <p>Score: 0</p>
-                        <p>Total: 0</p>
-                        <p>Round: 1</p>
+                    <p>COM</p>
+                    <div class="key-container">
+                        <p>Score:</p>
+                        <p>Total:</p>
+                    </div>
+                    <div class="value-container">
+                        <p>0</p>
+                        <p>0</p>
                     </div>
                 </div>
             </div>
-            <div id="you-container">
+            <div class="round-container">
+                <div class="key-container">
+                    <p>Round:</p>
+                </div>
+                <div class="value-container">
+                    <p>0</p>
+                </div>
+            </div>
+            <div class="announcement-container">
+                <h2>ROUND 1</h2>
+            </div>
+            <div class="you-container">
                 <div class="stat-container">
-                    <div class="stat-log">
-                        <p>YOU</p>
-                        <p>Score: 0</p>
-                        <p>Total: 0</p>
+                    <p>YOU</p>
+                    <div class="key-container">
+                        <p>Score:</p>
+                        <p>Total:</p>
+                    </div>
+                    <div class="value-container">
+                        <p>0</p>
+                        <p>0</p>
                     </div>
                 </div>
                 <div class="card-container">
-                    <p>Choose one of the options below for this round's move.</p>
                     <button class="card" id="input-rock">Rock</button>
                     <button class="card" id="input-paper">Paper</button>
                     <button class="card" id="input-scissors">Scissors</button>
+                </div>
+                <div class="tool-tip">
+                    <p>Rock - Strong against scissors, but weak against paper.</p>
                 </div>
             </div>
         </div>
