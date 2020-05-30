@@ -228,24 +228,26 @@ main
 {
     header
     {
-        height: 90px;
-        padding: 4px;
+        height: 70px;
+        padding: 2px;
     }
 
     .header-content h1
     {
         font-size: 30px;
+        margin: 2px 0;
     }
 
     .header-content p
     {
         font-size: 17px;
         letter-spacing: 1px;
+        margin: 0;
     }
 
     main
     {
-        margin: 90px 10px 0;
+        margin: 70px 10px 0;
         box-sizing: border-box;
     }
 
