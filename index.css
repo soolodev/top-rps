@@ -249,6 +249,19 @@ main
         box-sizing: border-box;
     }
 
+    .stat-container, .round-container
+    {
+        margin: 2px 15px;
+        width: 125px;
+        padding: 4px 8px;
+        line-height: 15px;
+    }
+
+    .stat-container p, .round-container p
+    {
+        margin: 3px auto;
+    }
+
     .card-container
     {
         margin: 0;
@@ -256,15 +269,21 @@ main
 
     .card
     {
-        height: 110px;
-        width: 110px;
+        height: 90px;
+        width: 90px;
         margin: 18px 8px 10px;
+    }
+
+
+    .you-container .card-container .card:hover
+    {
+        transform: scale(1.085, 1.085);
     }
 
     .com-container .card-container .card
     {
-        height: 75px;
-        width: 75px;
+        height: 65px;
+        width: 65px;
         margin: 8px 12px 10px;
     }
 
@@ -272,5 +291,18 @@ main
     {
         margin: 20px 0;
         font-size: 25px;
+    }
+
+    .tool-tip
+    {
+        margin: 5px auto 10px;
+        padding: 3px 40px;
+        letter-spacing: 0;
+    }
+
+    .tool-tip p
+    {
+        margin: 2px 2px;
+        font-size: 14px;
     }
 }
