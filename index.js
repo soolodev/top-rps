@@ -1,5 +1,7 @@
 const ROUND_MAX = 5;
 
+// style.textContext = ...
+
 /*
     Helper Functions
 */
