@@ -11,16 +11,16 @@
     <header>
         <div class="header-content">
             <h1><strong>Rock Paper Scissors</strong></h1>
-            <p><i>First one to 5 points wins!</i></p>
+            <p>First one to 5 points wins!</p>
         </div>
     </header>
     <main>
         <div class="page-width">
             <div class="com-container">
                 <div class="card-container">
-                    <div class="card">Rock</div>
-                    <div class="card">Paper</div>
-                    <div class="card">Scissors</div>
+                    <div id="com-rock" class="card">Rock</div>
+                    <div id="com-paper" class="card">Paper</div>
+                    <div id="com-scissors" class="card">Scissors</div>
                 </div>
                 <div class="stat-container">
                     <p>COM</p>
@@ -29,8 +29,8 @@
                         <p>Total:</p>
                     </div>
                     <div class="value-container">
-                        <p>0</p>
-                        <p>0</p>
+                        <p id="com-score">0</p>
+                        <p id="com-total">0</p>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <p>Round:</p>
                 </div>
                 <div class="value-container">
-                    <p>0</p>
+                    <p id="round-count">0</p>
                 </div>
             </div>
             <div class="announcement-container">
@@ -53,17 +53,17 @@
                         <p>Total:</p>
                     </div>
                     <div class="value-container">
-                        <p>0</p>
-                        <p>0</p>
+                        <p id="you-score">0</p>
+                        <p id="you-total">0</p>
                     </div>
                 </div>
                 <div class="card-container">
-                    <button class="card" id="input-rock">Rock</button>
-                    <button class="card" id="input-paper">Paper</button>
-                    <button class="card" id="input-scissors">Scissors</button>
+                    <button id="you-rock" class="card">Rock</button>
+                    <button id="you-paper" class="card">Paper</button>
+                    <button id="you-scissors" class="card">Scissors</button>
                 </div>
                 <div class="tool-tip">
-                    <p>Rock - Strong against scissors, but weak against paper.</p>
+                    <p id="tool-text">Rock - Strong against scissors, but weak against paper.</p>
                 </div>
             </div>
         </div>
