@@ -74,7 +74,12 @@ main
     margin: 0 auto;
 }
 
-.you-container, .com-container
+.you-container
+{
+    padding: 8px 0 12px;
+}
+
+.com-container
 {
     padding: 8px 0;
 }
