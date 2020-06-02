@@ -265,18 +265,9 @@ const moveIn = (e) =>
 // remove tip
 const moveOut = (e) =>
 {
-    const toolText = document.getElementById("tool-text");
     const toolContainer = document.getElementById("tool-container");
 
     toolContainer.classList.remove("tt-enter", "tt-active");
-
-    setTimeout(() =>
-        {
-            if (toolContainer.classList.contains("tt-active") == false)
-            {
-                toolText.textContent = "Hover over one of the options to reveal info.";
-            }
-        }, 10000);
 }
 
 /*
