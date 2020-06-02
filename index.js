@@ -247,21 +247,17 @@ const moveIn = (e) =>
     if (hoverObject == "Rock")
     {
         toolText.textContent = "Rock - Strong against scissors, but weak against paper.";
-        toolArrow.style.setProperty("left", "355px");
-        // toolArrow.style.setProperty("left", '${toolArrow.left + rockPos.left}px');
-        // console.log(rockPos.left + (rockPos.width / 2));
+        toolArrow.style.setProperty("left", `${rockPos.left + (rockPos.width / 2) - (arrowPos.width / 2)}px`);
     }
     else if (hoverObject == "Paper")
     {
         toolText.textContent = "Paper - Strong against rock, but weak against scissors.";
-        toolArrow.style.setProperty("left", "505px");
-        // console.log(paperPos.left + (paperPos.width / 2));
+        toolArrow.style.setProperty("left", `${paperPos.left + (paperPos.width / 2) - (arrowPos.width / 2)}px`);
     }
     else if (hoverObject == "Scissors")
     {
         toolText.textContent = "Scissors - Strong against paper, but weak against rock.";
-        toolArrow.style.setProperty("left", "660px");
-        // console.log(scissorsPos.left + (scissorsPos.width / 2));
+        toolArrow.style.setProperty("left", `${scissorsPos.left + (scissorsPos.width / 2) - (arrowPos.width / 2)}px`);
     }
 
 }
