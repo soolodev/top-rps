@@ -212,23 +212,49 @@ main
     margin: 1px 0 20px;
 }
 
+.arrow
+{
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF9E80;
+    transform: translateY(-50%) rotate(45deg);
+    transition: all 0.25s;
+}
+
 .tool-tip
 {
-    width: 92%;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    max-width: 92%;
     letter-spacing: 2px;
     background-color: #FF9E80;
-    border: 1px solid #DC9F78;
     border-radius: 8px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     margin: 7px auto 0;
     padding: 3px 40px;
+    transition: all 0.75s;
+    -moz-transition: all 0.75s;
+    -webkit-transition: all 0.75s;
 }
 
 .tool-tip p
 {
     margin: 4px 2px;
+}
+
+.tt-enter
+{
+    visibility: visible;
+}
+
+.tt-active
+{
+    opacity: 1;
 }
 
 .wrapper-footer

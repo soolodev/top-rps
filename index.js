@@ -133,7 +133,7 @@ function findWinner(pOneSelection, pTwoSelection)
 /*
     Text Functions
 */
-// Returns a string to announce the start of the round
+// Returns a string to announce the start of the round // DEPRECATED
 function roundStart(roundCount, pOneScore, pTwoScore)
 {
     let startText = "";
@@ -224,33 +224,92 @@ function getFinalDetail(youScore, comScore, roundCount)
 }
 
 /*
+    Tool tip
+*/
+// Swaps text and shows tip
+const moveIn = (e) =>
+{
+    const hoverObject = playerPlay(e.target.id);
+
+    const rockPos = e.target.getBoundingClientRect();
+    const paperPos = e.target.getBoundingClientRect();
+    const scissorsPos = e.target.getBoundingClientRect();
+
+    const toolText = document.getElementById("tool-text");
+    const toolContainer = document.getElementById("tool-container");
+    const toolArrow = document.getElementById("tool-arrow");
+
+    const arrowPos = toolArrow.getBoundingClientRect();
+
+    toolContainer.classList.add("tt-enter");
+    toolContainer.classList.add("tt-active");
+
+    if (hoverObject == "Rock")
+    {
+        toolText.textContent = "Rock - Strong against scissors, but weak against paper.";
+        toolArrow.style.setProperty("left", "355px");
+        // toolArrow.style.setProperty("left", '${toolArrow.left + rockPos.left}px');
+        // console.log(rockPos.left + (rockPos.width / 2));
+    }
+    else if (hoverObject == "Paper")
+    {
+        toolText.textContent = "Paper - Strong against rock, but weak against scissors.";
+        toolArrow.style.setProperty("left", "505px");
+        // console.log(paperPos.left + (paperPos.width / 2));
+    }
+    else if (hoverObject == "Scissors")
+    {
+        toolText.textContent = "Scissors - Strong against paper, but weak against rock.";
+        toolArrow.style.setProperty("left", "660px");
+        // console.log(scissorsPos.left + (scissorsPos.width / 2));
+    }
+
+}
+
+// remove tip
+const moveOut = (e) =>
+{
+    const toolText = document.getElementById("tool-text");
+    const toolContainer = document.getElementById("tool-container");
+
+    toolContainer.classList.remove("tt-enter", "tt-active");
+
+    setTimeout(() =>
+        {
+            if (toolContainer.classList.contains("tt-active") == false)
+            {
+                toolText.textContent = "Hover over one of the options to reveal info.";
+            }
+        }, 10000);
+}
+
+/*
     Overall Game Function
 */
 // Plays through a round
 //     e is the click event that called this function
 const playRound = (e) =>
 {
-    let pOneSelection = playerPlay(e.target.id);
-    let pTwoSelection = computerPlay();
-    let winner = findWinner(pOneSelection, pTwoSelection);
+    const pOneSelection = playerPlay(e.target.id);
+    const pTwoSelection = computerPlay();
+    const winner = findWinner(pOneSelection, pTwoSelection);
 
-    let youRock = document.getElementById("you-rock");
-    let youPaper = document.getElementById("you-paper");
-    let youScissors = document.getElementById("you-scissors");
+    const youRock = document.getElementById("you-rock");
+    const youPaper = document.getElementById("you-paper");
+    const youScissors = document.getElementById("you-scissors");
 
-    let comRock = document.getElementById("com-rock");
-    let comPaper = document.getElementById("com-paper");
-    let comScissors = document.getElementById("com-scissors");
+    const comRock = document.getElementById("com-rock");
+    const comPaper = document.getElementById("com-paper");
+    const comScissors = document.getElementById("com-scissors");
 
-    let youScoreElement = document.getElementById("you-score");
-    let comScoreElement = document.getElementById("com-score");
-    let youWinsElement = document.getElementById("you-wins");
-    let comWinsElement = document.getElementById("com-wins");
-    let roundCountElement = document.getElementById("round-count");
+    const youScoreElement = document.getElementById("you-score");
+    const comScoreElement = document.getElementById("com-score");
+    const youWinsElement = document.getElementById("you-wins");
+    const comWinsElement = document.getElementById("com-wins");
+    const roundCountElement = document.getElementById("round-count");
 
-    let announcementText = document.getElementById("announcement-text");
-    let detailText = document.getElementById("announcement-detail");
-    let toolText = document.getElementById("tool-text");
+    const announcementText = document.getElementById("announcement-text");
+    const detailText = document.getElementById("announcement-detail");
 
     let youScore = youScoreElement.textContent;
     let comScore = comScoreElement.textContent;
@@ -368,7 +427,7 @@ const playRound = (e) =>
 }
 
 // Operates the game
-//     e is the click event that called this function
+//     e is the click event that called this function // DEPRECATED
 function game(e)
 {
     let roundCount = 0;

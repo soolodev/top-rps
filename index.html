@@ -64,7 +64,8 @@
                     <button id="you-paper" class="card">Paper</button>
                     <button id="you-scissors" class="card">Scissors</button>
                 </div>
-                <div class="tool-tip">
+                <div id="tool-container" class="tool-tip">
+                    <span id="tool-arrow" class="arrow"></span>
                     <p id="tool-text">Rock - Strong against scissors, but weak against paper.</p>
                 </div>
             </div>
@@ -80,6 +81,14 @@
         document.getElementById("you-rock").addEventListener("click", e => playRound(e));
         document.getElementById("you-paper").addEventListener("click", e => playRound(e));
         document.getElementById("you-scissors").addEventListener("click", e => playRound(e));
+
+        document.getElementById("you-rock").addEventListener("mouseenter", e => moveIn(e));
+        document.getElementById("you-paper").addEventListener("mouseenter", e => moveIn(e));
+        document.getElementById("you-scissors").addEventListener("mouseenter", e => moveIn(e));
+
+        document.getElementById("you-rock").addEventListener("mouseleave", e => moveOut(e));
+        document.getElementById("you-paper").addEventListener("mouseleave", e => moveOut(e));
+        document.getElementById("you-scissors").addEventListener("mouseleave", e => moveOut(e));
     </script>
 </body>
 </html>
