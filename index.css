@@ -93,7 +93,7 @@ main
     padding: 4px 0;
 }
 
-.card
+.card, .card-active
 {
     display: inline-block;
     width: 90px;
@@ -101,6 +101,7 @@ main
     background-color: #90FF76;
     border: 1px solid #7FEA61;
     border-radius: 5px;
+    font-weight: normal;
     backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -111,13 +112,20 @@ main
     padding: 5px 0;
 }
 
-.you-container .card-container .card
+.card-active
+{
+    background-color: #D5FFA8;
+    border: 2px solid #CFF390;
+    font-weight: bold;
+}
+
+.you-container .card-container .card, .you-container .card-container .card-active
 {
     width: 120px;
     height: 120px;
 }
 
-.you-container .card-container .card:hover
+.you-container .card-container .card:hover, .you-container .card-container .card-active:hover
 {
     cursor: pointer;
     transition-delay: 0.01s;
@@ -285,7 +293,7 @@ main
         margin: 3px auto;
     }
 
-    .card
+    .card, .card-active
     {
         width: 65px;
         height: 65px;
@@ -293,14 +301,14 @@ main
         margin-right: 12px;
     }
 
-    .you-container .card-container .card
+    .you-container .card-container .card, .you-container .card-container .card-active
     {
         width: 90px;
         height: 90px;
         margin: 14px 8px 6px;
     }
 
-    .you-container .card-container .card:hover
+    .you-container .card-container .card:hover, .you-container .card-container .card-active:hover
     {
         transform: scale(1.085, 1.085);
         -moz-transform: scale(1.085, 1.085);

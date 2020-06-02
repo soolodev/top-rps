@@ -233,6 +233,10 @@ const playRound = (e) =>
     let pTwoSelection = computerPlay();
     let winner = findWinner(pOneSelection, pTwoSelection);
 
+    let youRock = document.getElementById("you-rock");
+    let youPaper = document.getElementById("you-paper");
+    let youScissors = document.getElementById("you-scissors");
+
     let comRock = document.getElementById("com-rock");
     let comPaper = document.getElementById("com-paper");
     let comScissors = document.getElementById("com-scissors");
@@ -254,23 +258,60 @@ const playRound = (e) =>
     let roundCount = roundCountElement.textContent;
 
     // Update com choice
+    if (pOneSelection == "Rock")
+    {
+        youRock.classList.remove("card");
+        youRock.classList.add("card-active");
+        youPaper.classList.remove("card-active");
+        youPaper.classList.add("card");
+        youScissors.classList.remove("card-active");
+        youScissors.classList.add("card");
+    }
+    else if (pOneSelection == "Paper")
+    {
+        youRock.classList.remove("card-active");
+        youRock.classList.add("card");
+        youPaper.classList.remove("card");
+        youPaper.classList.add("card-active");
+        youScissors.classList.remove("card-active");
+        youScissors.classList.add("card");
+    }
+    else if (pOneSelection == "Scissors")
+    {
+        youRock.classList.remove("card-active");
+        youRock.classList.add("card");
+        youPaper.classList.remove("card-active");
+        youPaper.classList.add("card");
+        youScissors.classList.remove("card");
+        youScissors.classList.add("card-active");
+    }
+
     if (pTwoSelection == "Rock")
     {
-        comRock.style.fontWeight = "bold";
-        comPaper.style.fontWeight = "normal";
-        comScissors.style.fontWeight = "normal";
+        comRock.classList.remove("card");
+        comRock.classList.add("card-active");
+        comPaper.classList.remove("card-active");
+        comPaper.classList.add("card");
+        comScissors.classList.remove("card-active");
+        comScissors.classList.add("card");
     }
     else if (pTwoSelection == "Paper")
     {
-        comRock.style.fontWeight = "normal";
-        comPaper.style.fontWeight = "bold";
-        comScissors.style.fontWeight = "normal";
+        comRock.classList.remove("card-active");
+        comRock.classList.add("card");
+        comPaper.classList.remove("card");
+        comPaper.classList.add("card-active");
+        comScissors.classList.remove("card-active");
+        comScissors.classList.add("card");
     }
     else if (pTwoSelection == "Scissors")
     {
-        comRock.style.fontWeight = "normal";
-        comPaper.style.fontWeight = "normal";
-        comScissors.style.fontWeight = "bold";
+        comRock.classList.remove("card-active");
+        comRock.classList.add("card");
+        comPaper.classList.remove("card-active");
+        comPaper.classList.add("card");
+        comScissors.classList.remove("card");
+        comScissors.classList.add("card-active");
     }
 
     // Update score based on winner
