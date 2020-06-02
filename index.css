@@ -244,6 +244,8 @@ main
 
 .tool-tip p
 {
+    position: relative;
+    z-index: 1;
     margin: 4px 2px;
 }
 
