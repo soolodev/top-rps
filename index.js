@@ -182,7 +182,7 @@ function getRoundDetail(pOneSelection, pTwoSelection, winner, youScore, comScore
     }
     else
     {
-        resultText = resultText.concat("(", pOneSelection, " ties against ", pTwoSelection, ")", " (YOU ",
+        resultText = resultText.concat("(", pOneSelection, " ties ", pTwoSelection, ")", " (YOU ",
         youScore, " : COM ", comScore, ")")
     }
 
@@ -217,7 +217,8 @@ function getFinalDetail(youScore, comScore, roundCount)
 {
     let resultText = "";
 
-    resultText = resultText.concat("(", roundCount, " rounds total) ", "(YOU ", youScore, " : COM ", comScore, ")");
+    resultText = resultText.concat("(", roundCount, " rounds total) ",
+        "(YOU ", youScore, " : COM ", comScore, ")");
 
     return resultText;
 }
