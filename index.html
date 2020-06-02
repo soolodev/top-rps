@@ -27,11 +27,11 @@
                     <p>COM</p>
                     <div class="key-container">
                         <p>Score:</p>
-                        <p>Total:</p>
+                        <p>Wins:</p>
                     </div>
                     <div class="value-container">
                         <p id="com-score">0</p>
-                        <p id="com-total">0</p>
+                        <p id="com-wins">0</p>
                     </div>
                 </div>
             </div>
@@ -45,17 +45,18 @@
             </div>
             <div class="announcement-container">
                 <h2 id="announcement-text">ROUND 1</h2>
+                <p id="announcement-detail">Who will win?</p>
             </div>
             <div class="you-container">
                 <div class="stat-container">
                     <p>YOU</p>
                     <div class="key-container">
                         <p>Score:</p>
-                        <p>Total:</p>
+                        <p>Wins:</p>
                     </div>
                     <div class="value-container">
                         <p id="you-score">0</p>
-                        <p id="you-total">0</p>
+                        <p id="you-wins">0</p>
                     </div>
                 </div>
                 <div class="card-container">
@@ -76,9 +77,9 @@
     </footer>
 
     <script>
-        document.getElementById("you-rock").addEventListener("click", () => playRound);
-        document.getElementById("you-paper").addEventListener("click", () => playRound);
-        document.getElementById("you-scissors").addEventListener("click", () => playRound);
+        document.getElementById("you-rock").addEventListener("click", e => playRound(e));
+        document.getElementById("you-paper").addEventListener("click", e => playRound(e));
+        document.getElementById("you-scissors").addEventListener("click", e => playRound(e));
     </script>
 </body>
 </html>

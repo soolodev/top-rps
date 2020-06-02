@@ -3,83 +3,27 @@ const ROUND_MAX = 5;
 // style.textContext = ...
 
 /*
-    Helper Functions
-*/
-// Formats given input properly (capitalized)
-function formatInput(word)
-{
-    let upperWord = "";
-    let newWord = "";
-    let lowerWord = "";
-
-    upperWord = word.toUpperCase(); // to capitalize
-
-    // If single letter input given, convert to full string version (as a lowercase string)
-    if (word.length == 1)
-    {
-        if (word == "r")
-        {
-            lowerWord = "rock";
-        }
-        else if (word == "p")
-        {
-            lowerWord = "paper";
-        }
-        else if (word == "s")
-        {
-            lowerWord = "scissors";
-        }
-    }
-    else
-    {
-        lowerWord = word.toLowerCase(); // if not single letter, ensure it is lowercase string
-    }
-
-    // Join capital and lowercase string
-    newWord = upperWord.slice(0, 1);
-    newWord = newWord.concat(lowerWord.slice(1));
-
-    return newWord;
-}
-
-// Validates input to make sure it is a proper move
-//     Returns 0 if valid
-//     Returns 1 if invalid
-function validateInput(word)
-{
-    let valid = "";
-
-    valid = word.toLowerCase(); // for case-insensitive
-
-    if (valid == "rock" || valid == "paper" || valid == "scissors" ||
-        valid == "r" || valid == "p" || valid == "s")
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
-
-/*
     Play Functions
 */
 // Player turn to give input
-function playerPlay()
+function playerPlay(choice)
 {
-    let choice = "";
-
-    // Keep grabbing input until it is valid
-    while (validateInput(choice) == 1)
+    if (choice == "you-rock")
     {
-        let promptText = "What do you choose? [Rock(r), Paper(p), Scissors(s)]"
-
-        choice = prompt(promptText);
-        choice = formatInput(choice);
+        return "Rock";
     }
-
-    return choice;
+    else if (choice == "you-paper")
+    {
+        return "Paper";
+    }
+    else if (choice == "you-scissors")
+    {
+        return "Scissors";
+    }
+    else
+    {
+        return "Rock";
+    }
 }
 
 // Computer turn to give input (random from 1-3)
@@ -207,18 +151,39 @@ function getRoundResult(pOneSelection, pTwoSelection, winner)
 
     if (winner == 1)
     {
-        resultText = resultText.concat("Player One Wins! (", pOneSelection,
-            " beats ", pTwoSelection, ")");
+        resultText = resultText.concat("You Win!");
     }
     else if (winner == 2)
     {
-        resultText = resultText.concat("Player Two Wins! (", pTwoSelection,
-            " beats ", pOneSelection, ")");
+        resultText = resultText.concat("COM Wins!");
     }
     else
     {
-        resultText = resultText.concat("A Tie! (", pOneSelection,
-            " ties against ", pTwoSelection, ")")
+        resultText = resultText.concat("A Tie!")
+    }
+
+    return resultText;
+}
+
+// Returns a string to announce the detail of the current round
+function getRoundDetail(pOneSelection, pTwoSelection, winner, youScore, comScore)
+{
+    let resultText = "";
+
+    if (winner == 1)
+    {
+        resultText = resultText.concat("(", pOneSelection, " beats ", pTwoSelection, ")", " (YOU ",
+        youScore, " : COM ", comScore, ")");
+    }
+    else if (winner == 2)
+    {
+        resultText = resultText.concat("(", pTwoSelection, " beats ", pOneSelection, ")", " (YOU ",
+        youScore, " : COM ", comScore, ")");
+    }
+    else
+    {
+        resultText = resultText.concat("(", pOneSelection, " ties against ", pTwoSelection, ")", " (YOU ",
+        youScore, " : COM ", comScore, ")")
     }
 
     return resultText;
@@ -229,22 +194,30 @@ function getFinalResult(pOneScore, pTwoScore)
 {
     let resultText = "";
 
-    resultText = resultText.concat("Final results!",
-        "\nPlayer One has a score of ", pOneScore, ".",
-        "\nPlayer Two has a score of ", pTwoScore, ".");
+    resultText = resultText.concat("Final results.. ");
 
     if (pOneScore > pTwoScore)
     {
-        resultText = resultText.concat("\nPlayer One is the winner!");
+        resultText = resultText.concat("You are the winner!");
     }
     else if (pOneScore < pTwoScore)
     {
-        resultText = resultText.concat("\nPlayer Two is the winner!");
+        resultText = resultText.concat("COM is the winner!");
     }
     else
     {
-        resultText = resultText.concat("\nIt is a tie!");
+        resultText = resultText.concat("It is a tie!");
     }
+
+    return resultText;
+}
+
+// Returns a string to announce the detail of the overall match
+function getFinalDetail(youScore, comScore, roundCount)
+{
+    let resultText = "";
+
+    resultText = resultText.concat("(", roundCount, " rounds total) ", "(YOU ", youScore, " : COM ", comScore, ")");
 
     return resultText;
 }
@@ -254,13 +227,103 @@ function getFinalResult(pOneScore, pTwoScore)
 */
 // Plays through a round
 //     e is the click event that called this function
-// const playRound = (e) =>
-// {
-//     let pOneSelection = "";
-//     let pTwoSelection = "";
+const playRound = (e) =>
+{
+    let pOneSelection = playerPlay(e.target.id);
+    let pTwoSelection = computerPlay();
+    let winner = findWinner(pOneSelection, pTwoSelection);
 
-//     pOneSelection =
-// }
+    let comRock = document.getElementById("com-rock");
+    let comPaper = document.getElementById("com-paper");
+    let comScissors = document.getElementById("com-scissors");
+
+    let youScoreElement = document.getElementById("you-score");
+    let comScoreElement = document.getElementById("com-score");
+    let youWinsElement = document.getElementById("you-wins");
+    let comWinsElement = document.getElementById("com-wins");
+    let roundCountElement = document.getElementById("round-count");
+
+    let announcementText = document.getElementById("announcement-text");
+    let detailText = document.getElementById("announcement-detail");
+    let toolText = document.getElementById("tool-text");
+
+    let youScore = youScoreElement.textContent;
+    let comScore = comScoreElement.textContent;
+    let youWins = youWinsElement.textContent;
+    let comWins = comWinsElement.textContent;
+    let roundCount = roundCountElement.textContent;
+
+    // Update com choice
+    if (pTwoSelection == "Rock")
+    {
+        comRock.style.fontWeight = "bold";
+        comPaper.style.fontWeight = "normal";
+        comScissors.style.fontWeight = "normal";
+    }
+    else if (pTwoSelection == "Paper")
+    {
+        comRock.style.fontWeight = "normal";
+        comPaper.style.fontWeight = "bold";
+        comScissors.style.fontWeight = "normal";
+    }
+    else if (pTwoSelection == "Scissors")
+    {
+        comRock.style.fontWeight = "normal";
+        comPaper.style.fontWeight = "normal";
+        comScissors.style.fontWeight = "bold";
+    }
+
+    // Update score based on winner
+    // Update total based on winner
+    if (winner == 1)
+    {
+        youScore++;
+    }
+    else if (winner == 2)
+    {
+        comScore++;
+    }
+
+    roundCount++;
+
+    // Check if at 5
+        // if at 5, reset score
+        // announce winner of match
+        // else, announce winner of round
+    if (youScore == 5 || comScore == 5)
+    {
+        announcementText.textContent = getFinalResult(youScore, comScore);
+        detailText.textContent = getFinalDetail(youScore, comScore, roundCount);
+
+        if (youScore == 5)
+        {
+            youWins++;
+        }
+        else
+        {
+            comWins++;
+        }
+
+        youScore = 0;
+        comScore = 0;
+        roundCount = 0;
+    }
+    else
+    {
+        announcementText.textContent = getRoundResult(pOneSelection, pTwoSelection, winner);
+        detailText.textContent = getRoundDetail(pOneSelection, pTwoSelection, winner, youScore, comScore);
+    }
+
+    // Update score text
+    // Update total text
+    // Update round text
+
+    youScoreElement.textContent = youScore;
+    comScoreElement.textContent = comScore;
+    youWinsElement.textContent = youWins;
+    comWinsElement.textContent = comWins;
+    roundCountElement.textContent = roundCount;
+}
 
 // Operates the game
 //     e is the click event that called this function

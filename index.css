@@ -11,6 +11,7 @@
 html, body
 {
     height: 100%;
+    min-width: 346px;
     margin: 0;
 }
 
@@ -179,8 +180,7 @@ main
 .announcement-container
 {
     clear: both;
-    width: 200px;
-    font-size: 30px;
+    width: 500px;
     text-align: center;
     margin: auto;
     padding: 3px 0;
@@ -188,7 +188,16 @@ main
 
 .announcement-container h2
 {
-    margin: 20px 0;
+    font-size: 28px;
+    margin: 20px 0 0;
+}
+
+.announcement-container p
+{
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin: 1px 0 20px;
 }
 
 .tool-tip
@@ -298,10 +307,20 @@ main
         -webkit-transform: scale(1.085, 1.085);
     }
 
+    .announcement-container
+    {
+        width: 300px;
+    }
+
     .announcement-container h2
     {
-        font-size: 24px;
-        margin: 18px 0;
+        font-size: 15px;
+        margin: 18px 0 0;
+    }
+
+    .announcement-container p
+    {
+        margin: 1px 0 18px;
     }
 
     .tool-tip
