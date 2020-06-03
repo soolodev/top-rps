@@ -419,8 +419,25 @@ const playRound = (e) =>
     }
 
     // Announcement text bounce
-    announcementText.classList.add("bounce");
-    detailText.classList.add("bounce");
+    if (announcementText.classList.contains("bounce"))
+    {
+        announcementText.classList.remove("bounce");
+        console.log("bounce text removed!");
+    }
+    else
+    {
+        announcementText.classList.add("bounce");
+        console.log("bounce text added!");
+    }
+
+    if (detailText.classList.contains("bounce"))
+    {
+        detailText.classList.remove("bounce");
+    }
+    else
+    {
+        detailText.classList.add("bounce");
+    }
 
     // Update score text
     // Update total text

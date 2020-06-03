@@ -154,7 +154,7 @@ main
 {
     /*background-color: #D5FFA8;*/
     /*border: 2px solid #CFF390;*/
-    border-width: 2px;
+    border-width: 3px;
     font-weight: bold;
 }
 
@@ -219,9 +219,9 @@ main
 {
     font-size: 28px;
     margin: 20px 0 0;
-    transition-duration: 0.1s;
-    -moz-transition-duration: 0.1s;
-    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.075s;
+    -moz-transition-duration: 0.075s;
+    -webkit-transition-duration: 0.075s;
 }
 
 .announcement-container p
@@ -230,9 +230,9 @@ main
     font-style: italic;
     letter-spacing: 1px;
     margin: 1px 0 20px;
-    transition-duration: 0.1s;
-    -moz-transition-duration: 0.1s;
-    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.075s;
+    -moz-transition-duration: 0.075s;
+    -webkit-transition-duration: 0.075s;
 }
 
 .bounce
