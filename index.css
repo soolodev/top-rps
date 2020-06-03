@@ -345,17 +345,17 @@ main
 
 #you-rock.card-active, #com-rock.card-active
 {
-    background-color: #ffeded;
+    background-color: #FFF8F8;
 }
 
 #you-paper.card-active, #com-paper.card-active
 {
-    background-color: #edffff;
+    background-color: #F8FFFF;
 }
 
 #you-scissors.card-active, #com-scissors.card-active
 {
-    background-color: #ffffed;
+    background-color: #FFFFF8;
 }
 
 @media screen and (max-width: 600px)
@@ -412,7 +412,7 @@ main
         height: 65px;
         margin-left: 12px;
         margin-right: 12px;
-        padding: 18px 4px;
+        padding: 18px 1px;
     }
 
     .you-container .card-container .card, .you-container .card-container .card-active
@@ -431,7 +431,7 @@ main
 
     .announcement-container
     {
-        width: 280px;
+        width: 300px;
     }
 
     .announcement-container h2
