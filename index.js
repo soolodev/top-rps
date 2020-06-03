@@ -172,18 +172,24 @@ function getRoundDetail(pOneSelection, pTwoSelection, winner, youScore, comScore
 
     if (winner == 1)
     {
-        resultText = resultText.concat("(", pOneSelection, " beats ", pTwoSelection, ")", " (YOU ",
-        youScore, " : COM ", comScore, ")");
+        resultText = resultText.concat("(<span class='hl-text'>",
+            pOneSelection, "</span> beats <span class='hl-text'>",
+            pTwoSelection, "</span>)", " (YOU <span class='hl-text'>",
+            youScore, "</span> : COM <span class='hl-text'>", comScore, "</span>)");
     }
     else if (winner == 2)
     {
-        resultText = resultText.concat("(", pTwoSelection, " beats ", pOneSelection, ")", " (YOU ",
-        youScore, " : COM ", comScore, ")");
+        resultText = resultText.concat("(<span class='hl-text'>",
+            pTwoSelection, "</span> beats <span class='hl-text'>",
+            pOneSelection, "</span>)", " (YOU <span class='hl-text'>",
+            youScore, "</span> : COM <span class='hl-text'>", comScore, "</span>)");
     }
     else
     {
-        resultText = resultText.concat("(", pOneSelection, " ties ", pTwoSelection, ")", " (YOU ",
-        youScore, " : COM ", comScore, ")")
+        resultText = resultText.concat("(<span class='hl-text'>",
+            pTwoSelection, "</span> ties <span class='hl-text'>",
+            pOneSelection, "</span>)", " (YOU <span class='hl-text'>",
+            youScore, "</span> : COM <span class='hl-text'>", comScore, "</span>)");
     }
 
     return resultText;
@@ -217,8 +223,9 @@ function getFinalDetail(youScore, comScore, roundCount)
 {
     let resultText = "";
 
-    resultText = resultText.concat("(", roundCount, " rounds total) ",
-        "(YOU ", youScore, " : COM ", comScore, ")");
+    resultText = resultText.concat("(<span class='hl-text'>", roundCount, "</span> rounds total) ",
+        "(YOU <span class='hl-text'>", youScore,
+        "</span> : COM <span class='hl-text'>", comScore, "</span>)");
 
     return resultText;
 }
@@ -246,17 +253,17 @@ const moveIn = (e) =>
 
     if (hoverObject == "Rock")
     {
-        toolText.textContent = "Rock - Strong against scissors, but weak against paper.";
+        toolText.innerHTML = "<b>Rock</b> - Strong against scissors, but weak against paper.";
         toolArrow.style.setProperty("left", `${rockPos.left + (rockPos.width / 2) - (arrowPos.width / 2)}px`);
     }
     else if (hoverObject == "Paper")
     {
-        toolText.textContent = "Paper - Strong against rock, but weak against scissors.";
+        toolText.innerHTML = "<b>Paper</b> - Strong against rock, but weak against scissors.";
         toolArrow.style.setProperty("left", `${paperPos.left + (paperPos.width / 2) - (arrowPos.width / 2)}px`);
     }
     else if (hoverObject == "Scissors")
     {
-        toolText.textContent = "Scissors - Strong against paper, but weak against rock.";
+        toolText.innerHTML = "<b>Scissors</b> - Strong against paper, but weak against rock.";
         toolArrow.style.setProperty("left", `${scissorsPos.left + (scissorsPos.width / 2) - (arrowPos.width / 2)}px`);
     }
 
@@ -381,7 +388,7 @@ const playRound = (e) =>
     if (youScore == 5 || comScore == 5)
     {
         announcementText.textContent = getFinalResult(youScore, comScore);
-        detailText.textContent = getFinalDetail(youScore, comScore, roundCount);
+        detailText.innerHTML = getFinalDetail(youScore, comScore, roundCount);
 
         if (youScore == 5)
         {
@@ -399,8 +406,12 @@ const playRound = (e) =>
     else
     {
         announcementText.textContent = getRoundResult(pOneSelection, pTwoSelection, winner);
-        detailText.textContent = getRoundDetail(pOneSelection, pTwoSelection, winner, youScore, comScore);
+        detailText.innerHTML = getRoundDetail(pOneSelection, pTwoSelection, winner, youScore, comScore);
     }
+
+    // Announcement text bounce
+    announcementText.classList.add("bounce");
+    detailText.classList.add("bounce");
 
     // Update score text
     // Update total text
