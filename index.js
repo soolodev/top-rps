@@ -422,12 +422,10 @@ const playRound = (e) =>
     if (announcementText.classList.contains("bounce"))
     {
         announcementText.classList.remove("bounce");
-        console.log("bounce text removed!");
     }
     else
     {
         announcementText.classList.add("bounce");
-        console.log("bounce text added!");
     }
 
     if (detailText.classList.contains("bounce"))
