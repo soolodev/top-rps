@@ -92,6 +92,11 @@
 
         document.getElementById("announcement-text").addEventListener("transitionend", e =>
             {
+                if (e.propertyName != "transform")
+                {
+                    return;
+                }
+
                 e.target.classList.remove("bounce");
             });
 

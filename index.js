@@ -1,6 +1,6 @@
-const ROUND_MAX = 5;
-
-// style.textContext = ...
+const SCORE_MAX = 5;
+const TOTAL_MAX = 999999;
+const ROUND_MAX = 999999;
 
 /*
     Play Functions
@@ -379,24 +379,33 @@ const playRound = (e) =>
         comScore++;
     }
 
-    roundCount++;
+    if (roundCount < ROUND_MAX)
+    {
+        roundCount++;
+    }
 
     // Check if at 5
         // if at 5, reset score
         // announce winner of match
         // else, announce winner of round
-    if (youScore == 5 || comScore == 5)
+    if (youScore == SCORE_MAX || comScore == SCORE_MAX)
     {
         announcementText.textContent = getFinalResult(youScore, comScore);
         detailText.innerHTML = getFinalDetail(youScore, comScore, roundCount);
 
-        if (youScore == 5)
+        if (youScore == SCORE_MAX)
         {
-            youWins++;
+            if (youWins < TOTAL_MAX)
+            {
+                youWins++;
+            }
         }
         else
         {
-            comWins++;
+            if (comWins < TOTAL_MAX)
+            {
+                comWins++;
+            }
         }
 
         youScore = 0;
